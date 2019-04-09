@@ -12,19 +12,19 @@ self.__precacheManifest = [
     "url": "/drum-kit/static/js/runtime~main.3ae46f20.js"
   },
   {
-    "revision": "447f543c1290a5db5d90",
-    "url": "/drum-kit/static/js/main.4ca715ad.chunk.js"
+    "revision": "0327fd6bb34714cc8b10",
+    "url": "/drum-kit/static/js/main.19fa12a9.chunk.js"
   },
   {
-    "revision": "3bb596feb725fa2a3ea7",
-    "url": "/drum-kit/static/js/2.e0e8f203.chunk.js"
+    "revision": "58cd139116e29ec1c181",
+    "url": "/drum-kit/static/js/2.9fe1c3c4.chunk.js"
   },
   {
-    "revision": "447f543c1290a5db5d90",
+    "revision": "0327fd6bb34714cc8b10",
     "url": "/drum-kit/static/css/main.8fa93118.chunk.css"
   },
   {
-    "revision": "00481749a9fc17cc351b469ee565a18a",
+    "revision": "fce16eacd9695aeed03ab3424f40dd90",
     "url": "/drum-kit/index.html"
   }
 ];
