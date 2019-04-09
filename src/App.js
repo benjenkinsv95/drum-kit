@@ -32,7 +32,6 @@ class App extends Component {
               </Col>
             )}
           </Row>
-
         </div>
       </div>
     );

@@ -1,25 +1,17 @@
 import React, { useState, useEffect } from "react";
 import DrumBeat from './DrumBeat'
-import useKey from 'use-key-hook';
 
 const useAudio = url => {
   const [audio] = useState(new Audio(url));
   const [playing, setPlaying] = useState(false);
 
-  useEffect(
-    () => {
-      if (playing) {
-        audio.currentTime = 0
-        audio.play()
-      } else {
-        audio.pause()
-      }
-    },
-    [playing]
-  );
-
   const startPlaying = shouldStart => {
-    audio.currentTime = 0
+    if (shouldStart) {
+      audio.pause()
+      audio.currentTime = 0
+    }
+
+    audio.play()
     setPlaying(shouldStart)
   }
 
@@ -52,27 +44,18 @@ function Drum({letter, sound, color}) {
 
   let mouseDown = event => {
     setPressed(true)
-    const newDrumBeatId = drumBeatId
-    console.log('drumBeatId', drumBeatId)
-    setDrumBeatId(drumBeatId + 1)
+    setPlaying(true)
+
     const newDrumBeats = [
       ...drumBeats,
       {
-        id: newDrumBeatId,
+        id: drumBeatId,
         createdAt: Date.now()
       }
     ]
-    console.log('adding drumbeat', drumBeats.map(el => el), newDrumBeats, '\n')
+
     setDrumBeats(newDrumBeats)
-
-    // setTimeout(function() {
-    //   const removedDrumBeats = drumBeats.filter(drumBeat => Date.now() - drumBeat.createdAt < 3000)
-    //   console.log('removing drumbeat', drumBeats.map(el => el), removedDrumBeats, '\n')
-    //   setDrumBeats(removedDrumBeats)
-    // }, 2900)
-
-    setPlaying(false)
-    setPlaying(true)
+    setDrumBeatId(drumBeatId + 1)
   }
 
   let mouseUp = event => {
@@ -83,7 +66,6 @@ function Drum({letter, sound, color}) {
     if (event.key.toUpperCase() === letter) {
       mouseDown()
     }
-
   }
 
   let keyUp = event => {
@@ -105,7 +87,7 @@ function Drum({letter, sound, color}) {
   console.log('about to render', drumBeats)
   const drumBeatsJsx = drumBeats
     // FIXME: There is some weird bug in the react version, where
-    // drumbeats aren't being removed, so we also check the timestamp and
+    // drumbeats aren't being removed, so we check the timestamp and
     // filter them here.
     .filter(drumBeat => Date.now() - drumBeat.createdAt < 5000)
     .map(drumBeat => (
@@ -114,7 +96,6 @@ function Drum({letter, sound, color}) {
       color={color}/>)
   )
 
-  console.log('color', color)
   return(
     <div
       className={pressed ? "playing" : ""}
