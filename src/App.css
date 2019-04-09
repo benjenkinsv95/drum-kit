@@ -1,13 +1,11 @@
 html {
   font-size: 10px;
-  background: url(./background.jpg) bottom center;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url(./background.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 
 body {
-  background: rgba(0,0,0,0.2);
+  background: inherit;
 }
 
 body,html {
@@ -42,7 +40,7 @@ body,html {
 
 .key-inlay {
   position: absolute;
-  top: 100%;
+  top: 0;
   right: 0;
   height: 100%;
   width: 100%;
@@ -72,14 +70,15 @@ body,html {
 
 @keyframes fall {
   0% {
-    transform: translateY(0vh);
+    /* transform: translateY(0vh); */
   }
   50% {
     opacity: 0.8;
   }
   100% {
-    transform: translateY(50vh);
+    /* transform: translateY(50vh); */
     opacity: 0;
+    top: 500px;
   }
 }
 
