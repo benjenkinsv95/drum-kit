@@ -24,7 +24,7 @@ class App extends Component {
         <div className="keys">
           <Row>
             {drums.map(({letter, sound, color}) =>
-              <Col key={letter} xs={4} xl="auto">
+              <Col key={letter} xs={4} xl="auto" align="center">
                 <Drum
                   letter={letter}
                   sound={sound}
