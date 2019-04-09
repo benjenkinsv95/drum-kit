@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  background: inherit;
+  background-color: initial;
 }
 
 body,html {
